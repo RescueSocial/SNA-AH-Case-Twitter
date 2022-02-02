@@ -20,7 +20,7 @@ A Cyber Intelligence Researcher in Italy collected Twitter, Reddit, and Instagra
 
 Using Google’s <a href="https://tfhub.dev/google/universal-sentence-encoder/1">Universal Sentence Encoder</a> which encodes text into high dimensional vectors, a cyber intelligence researcher analyzed topics shared by accounts each month during 2020. To do that, they used <a href="https://umap-learn.readthedocs.io/en/latest/parameters.html">UMAP</a> for non-linear dimension reduction, then they clustered similar tweets through <a href="https://hdbscan.readthedocs.io/en/latest/basic_hdbscan.html">HDBCAN</a>.
 Next, they generated a network of co-occurrences for the accounts that appeared in the same clusters. They applied a community detection algorithm to the resulting network, in this case <a href="https://www.nature.com/articles/s41598-019-41695-z">Leiden</a> to find clusters of accounts that shared tweets on the same topic.
-<br>They looked at 2 Peak Days in February 2020 and November 2020 on Twitter.
+<br><i>They looked at 2 Peak Days in February 2020 and November 2020 on Twitter.</i>
 
 - Arsenal network (February)<br>
 Most of the groups of accounts have expressed their desire not to see Amber in the upcoming Aquaman sequel. 
