@@ -4,12 +4,13 @@ Twitter - Social Network Analysis on Amber Heard's Case Example from Data Analys
 
 Twitter is the most studied platform, so after a cyber intelligence researcher collected data with APIs, obtaining analysis on it was relatively fast with previous models already created and high levels of anomalies. Although YouTube, one of the least studied platforms, has higher volume of accounts and repeated texts, the operation on Twitter is continual, risk-infused, and dense.
 
+### <b>Reports:</b>
 A first team of 3 Udacity graduates in data analysis quickly studied the years 2018-2021 for peaks, anomalies, and new account layers. NLP analysis is included, though mainly studying timelines and correlations. They used machine learning and botometer to create botscores.
 <i><br><b>New accounts created each month and day correlate to peaks on Twitter</b></i>
 
 A 2nd team did Coordination Analysis of Top 475 accounts, including Network Graphs of following coordination. With public safety grants, they had previously studied identifying risk groups on Twitter: https://www.sciencedirect.com/science/article/abs/pii/S1751157720306386
 
-A Cyber Intelligence Researcher in Italy collected Twitter, Reddit, and Instagram Data on Amber Heard and created Twitter and Reddit Dashboards of statistics.
+A Cyber Intelligence Researcher in Italy collected Twitter, Reddit, and Instagram Data on Amber Heard and created Twitter and Reddit Dashboards of statistics. Below analysis was preliminary and the start of our Social Network Analysis project.
 ### Topic-based account groups - Cyber Intelligence Researcher Analysis
 
 Using Google’s <a href="https://tfhub.dev/google/universal-sentence-encoder/1">Universal Sentence Encoder</a> which encodes text into high dimensional vectors, a cyber intelligence researcher analyzed topics shared by accounts each month during 2020. To do that, they used <a href="https://umap-learn.readthedocs.io/en/latest/parameters.html">UMAP</a> for non-linear dimension reduction, then they clustered similar tweets through <a href="https://hdbscan.readthedocs.io/en/latest/basic_hdbscan.html">HDBCAN</a>.
