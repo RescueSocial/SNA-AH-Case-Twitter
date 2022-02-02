@@ -1,6 +1,6 @@
 # SNA-AH-Case - Twitter 
-Twitter - Social Network Analysis on Amber Heard's Case Example from Data Analysts, Researchers, and Technologists
-<br>3 Udacity graduates in data analysis studied the years 2018, 2019, 2020, and 2021 for peaks, anomolalies, and new account layers.
+Twitter - Social Network Analysis on Amber Heard's Case Example from Data Analysts, Researchers, and Technologists. Twitter is the most studied platform, so obtaining analysis on it was quick.
+<br>3 Udacity graduates in data analysis studied the years 2018, 2019, 2020, and 2021 for peaks, anomolalies, and new account layers. They used machine learning and botometer to create botscores.
 
 A 2nd team did Coordination Analysis of Top 475 accounts. With public safety grants, they had previously studied identifying risk groups on Twitter: <br>https://www.sciencedirect.com/science/article/abs/pii/S1751157720306386
 
