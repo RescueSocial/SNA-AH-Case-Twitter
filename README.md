@@ -1,8 +1,8 @@
 # SNA-AH-Case - Twitter 
 Twitter - Social Network Analysis on Amber Heard's Case Example from Data Analysts, Researchers, and Technologists.
-- Analysis and data of timelines, accounts, peaks, wordclouds, hashtags, top shared urls, are included. To get a fuller understanding of the scale of the <a href="https://twitter.com/benimmo/status/1309532354306879488">Category 6</a> operation, we started with Twitter then moved forward to 6 platforms.
+- Analysis and data of timelines, accounts, peaks, wordclouds, hashtags, top shared urls, are included. To get a fuller understanding of the scale of the <a href="https://twitter.com/benimmo/status/1309532354306879488">Category 6</a> operation and of quantifications of the risks, we started with Twitter then moved forward to 6 platforms.
 
-Twitter is the most studied platform in the scientific world. After a cyber intelligence researcher collected data with APIs, obtaining analysis on it was relatively fast with previous models already created and high levels of anomalies. Although YouTube, one of the least studied platforms, has higher volume of accounts and repeated same texts, the operation on Twitter is continual, risk-infused, and dense.
+Twitter is the most studied platform in the scientific world. After a cyber intelligence researcher collected data with APIs, obtaining analysis on it was relatively fast with previous models already created and high levels of anomalies. Although YouTube, one of the least studied platforms, has higher volume of accounts and tens of thousands of repeated same texts, and Reddit has 5,025 banned accounts as the most commenting accounts, the operation on Twitter is continual, risk-infused, and dense.
 
 ### <b>Reports:</b>
 A first team of 3 Udacity graduates in data analysis quickly studied the years 2018-2021 for peaks, anomalies, and new account layers. NLP analysis is included, though mainly studying timelines and correlations. They used machine learning and botometer to create botscores.
