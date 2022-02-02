@@ -28,3 +28,5 @@ This group of 60 accounts in addition to the most used keywords and hashtags, sh
 These are probably mentions to accounts, which anyway have very unusual screen_names: tsAHuahu6E, t4m4UWQ0S5 etc..
 - Mentions network (part 2) (November)<br>
 Similar to the previous group, this group of 50 accounts also shared meaningless keywords.
+
+Data analsysis of Coordination, Retweets, and Knowledge Graphs is continuing.
