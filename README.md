@@ -33,4 +33,4 @@ These are probably mentions to accounts, which anyway have very unusual screen_n
 - Mentions network (part 2) (November)<br>
 Similar to the previous group, this group of 50 accounts also shared meaningless keywords.
 
-Data analysis of Coordination, Retweets, and Knowledge Graphs is continuing.
+### <b>Data analysis of Coordination, Retweets, and Knowledge Graphs is continuing.</b>
