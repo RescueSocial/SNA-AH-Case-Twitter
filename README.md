@@ -2,7 +2,8 @@
 Twitter - Social Network Analysis on Amber Heard's Case Example from Data Analysts, Researchers, and Technologists.
 - Analysis and data of timelines, accounts, peaks, wordclouds, hashtags, top shared urls, are included.
 
-Twitter is the most studied platform, so after a cyber intelligence researcher collected data with APIs, obtaining analysis on it was relatively fast with previous models already created and high levels of anomalies.
+Twitter is the most studied platform, so after a cyber intelligence researcher collected data with APIs, obtaining analysis on it was relatively fast with previous models already created and high levels of anomalies. Although YouTube, one of the least studied platforms, has higher volume of accounts and repeated texts, the operation on Twitter is continual, risk-infused, and dense.
+
 <br>A first team of 3 Udacity graduates in data analysis quickly studied the years 2018-2021 for peaks, anomalies, and new account layers. NLP analysis is included, though mainly studying timelines and correlations. They used machine learning and botometer to create botscores.
 <i><br><b>New accounts created each month and day correlate to peaks on Twitter</b></i>
 
