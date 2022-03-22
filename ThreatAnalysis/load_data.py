@@ -32,8 +32,14 @@ os.chdir('../../Twitter_Data')
 # LOAD DATA
 df_tweets = pd.read_csv("merged_all_years_zip.csv", compression='zip', lineterminator='\n')
 
+# use format to remove the +00:00
 df_tweets["created_at"] = pd.to_datetime(df_tweets["created_at"])
+
+
 df_tweets["date"] = pd.to_datetime(df_tweets["date"])
+# to remove the 00:00:00
+df_tweets["date"] = df_tweets.date.dt.date
+
 df_tweets["user_created_at"] = pd.to_datetime(df_tweets["user_created_at"])
 df_tweets = df_tweets.sort_values('created_at')
 
@@ -165,6 +171,12 @@ df_threat_years = (
     df_threat.groupby("year")["text"]
     .count()
     .reset_index(name="n_tweets")
+)
+
+df_threat_users = (
+    df_threat.groupby("year")["username"]
+    .nunique()
+    .reset_index(name="n_users")
 )
 
 df_kill_years = (
