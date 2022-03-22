@@ -161,48 +161,31 @@ for key in threat_counts['keyword'].head(17):
 #         mycolors2.append('#BAB0AC')
         
 
+df_threat_years = (
+    df_threat.groupby("year")["text"]
+    .count()
+    .reset_index(name="n_tweets")
+)
 
-        
-# # Threat tweets In Other Languages
-# threat_others = {'pagar', 'matar', 'muerte', 'morir', 'infierno', 'muere', 'muerta', 'inferno', 'morire', 'prigione'}
-# df_threat_others = df_threat[df_threat.text.str.contains('|'.join(threat_others))]
+df_kill_years = (
+    df_death.groupby("year")["text"]
+    .count()
+    .reset_index(name="n_tweets")
+)
 
-# # Add A Language-Detection Column
-# import icu
-# from polyglot.detect.base import logger as polyglot_logger
-# polyglot_logger.setLevel("ERROR")
+df_burn_years = (
+    df_burn.groupby("year")["text"]
+    .count()
+    .reset_index(name="n_tweets")
+)
 
-# def det(x):
-#     try:
-#         poly_obj = Detector(x, quiet=True)
-#         lang = icu.Locale.getDisplayName(poly_obj.language.locale)
-#     except:
-#         lang = 'Other'
-#     return lang
+df_crime_years = (
+    df_crime.groupby("year")["text"]
+    .count()
+    .reset_index(name="n_tweets")
+)
 
-# df_threat_others['language'] = df_threat_others.text.apply(lambda x: det(x)) 
-
-# # Add A Translation Column
-# import mtranslate
-
-# def translate(x):
-#     try:
-#         translated = mtranslate.translate(x,"en","auto")
-#     except:
-#         translated = 'not_translated'
-#     return translated
-
-# df_threat_others['translated'] = df_threat_others.text.apply(lambda x: translate(x))   
-    
-    
-# df_threat_others = pd.read_csv("other_languages.csv", low_memory=False, lineterminator='\n')
-
-# df_threat_others["p_dtime"] = pd.to_datetime(df_threat_others["p_dtime"])
-# df_threat_others["date"] = pd.to_datetime(df_threat_others["date"])
-# df_threat_others["u_dtime"] = pd.to_datetime(df_threat_others["u_dtime"])
-# df_threat_others = df_threat_others.sort_values('p_dtime') 
-    
-    
+# https://www.heavy.ai/blog/12-color-palettes-for-telling-better-stories-with-your-data
     
     
 

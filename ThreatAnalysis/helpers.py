@@ -50,21 +50,20 @@ def get_top(df, col, n, column_name, count_name):
         )
 
 
-def pie(df, title):
+def pie(df, title, c=0):
     """
     A function to plot pie graph
     Args:
         - df--> DataFrame.
         - title --> the graph title
     """
-
     colors = px.colors.qualitative.T10
-
+    
     fig = px.pie(
         df,
         values=f"{df.columns[1]}",
         names=f"{df.columns[0]}",
-        color_discrete_sequence=colors,
+        color_discrete_sequence = colors if c==0 else c,
         title=title,
     )
 
