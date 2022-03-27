@@ -1,8 +1,6 @@
-import plotly.io as pio
 from datetime import datetime
 import pandas as pd
 import os
-from datetime import datetime
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
@@ -187,6 +185,8 @@ def keyword_peaks(df, keyword, n=5, threshold=0):
     df_keyword_daily.sort_values(['ntweets', 'date'], ascending=[False, False], inplace=True)
     
     bar_peaks(df_keyword_daily.head(n), f'"{keyword}"' + ' Peak Contributions', threshold=threshold)
+    
+    
     
 def text_peaks(df, mytext, n=5, threshold=0):
     """
