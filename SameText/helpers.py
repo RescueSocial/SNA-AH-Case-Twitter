@@ -381,12 +381,12 @@ def get_amber_text(row):
 
 class SameText:
     def __init__(self, df, token):
-        self.token_df = df[df.tokens == token]
+        self.token_df = df[df.text_tokens == token]
         self.token = token
 
     def n_commnets_unique(self):
         print(
-            f"This comment appeared in {self.token_df.message.value_counts().shape[0]} shape"
+            f"This comment appeared in {self.token_df.clean_text.value_counts().shape[0]} shape"
         )
 
     def get_df(self):
