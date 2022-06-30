@@ -381,7 +381,7 @@ def get_amber_text(row):
 
 class SameText:
     def __init__(self, df, token):
-        self.token_df = df[df.text_tokens == token]
+        self.token_df = df[df.text_tokens == set(le(token))]
         self.token = token
 
     def n_commnets_unique(self):
@@ -392,8 +392,14 @@ class SameText:
     def get_df(self):
         return self.token_df
 
+    def get_stats(self):
+        users = self.token_df.user_name.nunique()
+        print(
+            f"This text appeared {self.token_df.shape[0]} in {self.token_df.clean_text.value_counts().shape[0]} shape from {users} users "
+        )
+
     def users(self):
-        return self.token_df.username.value_counts()
+        return self.token_df.user_name.value_counts()
 
     def dates(self):
         return self.token_df.date.value_counts()
@@ -402,7 +408,7 @@ class SameText:
         return self.token_df.head(n)
 
     def shapes(self, n):
-        return self.token_df.message.value_counts().head(n)
+        return self.token_df.clean_text.value_counts().head(n)
 
     def peak(self, n):
         bar_peaks(
@@ -420,18 +426,21 @@ class SameText:
         max = self.dates().index.max()
         print(f"The commentes were made between {min} and  {max}")
         print(
-            self.token_df.groupby("year")
-            .count()["message"]
+            self.token_df.groupby(self.token_df.created_at.dt.year)
+            .count()["clean_text"]
             .to_frame()
-            .rename(columns={"message": "n_comments"})
+            .rename(columns={"clean_text": "n_tweets"})
         )
         pie(
-            self.token_df.groupby("year").count()["message"].to_frame().reset_index(),
+            self.token_df.groupby(self.token_df.created_at.dt.year)
+            .count()["clean_text"]
+            .to_frame()
+            .reset_index(),
             "Numner of Comments Per Year",
         )
 
-        facet_heat(self.token_df, title='Numner of Comments Per Day')
-        
+        facet_heat(self.token_df, title="Number of tweets Per Day")
+
         for year in self.token_df.year.unique():
             facet_days(self.token_df, str(int(year)))
 
@@ -445,9 +454,8 @@ class SameText:
 
     def df_timing(self):
         df = self.get_df()
-        df["datetime"] = pd.to_datetime(df["datetime"])
-        df = df.sort_values("datetime")
-        df["diff"] = df.datetime.diff()
+        df = df.sort_values("created_at")
+        df["diff"] = df.created_at.diff()
         return pd.concat([df, df["diff"].dt.components.iloc[:, 0:3]], axis=1)
 
     def get_groups(self, date):
@@ -458,3 +466,15 @@ class SameText:
             .index
         )
 
+    def get_metrics(self):
+        df_with_merics = pd.merge(self.token_df, df_metrics_2022, how="left")
+        metrics_dict = {
+            "retweet_count": df_with_merics["retweet_count"].sum(),
+            "reply_count": df_with_merics["reply_count"].sum(),
+            "like_count": df_with_merics["like_count"].sum(),
+            "quote_count": df_with_merics["quote_count"].sum(),
+        }
+        display(pd.Series(metrics_dict.values(), index=metrics_dict.keys(),))
+    def get_times(self):
+        df = self.df_timing().query(' days == 0  and  hours == 0  and minutes == 0')
+        print(f"{df.shape[0]} tweets from {self.token_df.shape[0]} tweets made in less than 1 min from previous tweet by {df.user_name.nunique()} users")
