@@ -11,6 +11,8 @@ import warnings
 import re
 import seaborn as sb
 warnings.filterwarnings("ignore")
+from ast import literal_eval as le
+
 
 def neat_display(objects):
     """
@@ -380,9 +382,23 @@ def get_amber_text(row):
     return neat
 
 class SameText:
-    def __init__(self, df, token):
-        self.token_df = df[df.text_tokens == set(le(token))]
-        self.token = token
+    def __init__(self, df, token, add_more):
+        if add_more:
+            self.token_df = df[
+                df.text_tokens.isin(
+                    [
+                        set(le(str(i)))
+                        for i in values[
+                            values.tokens.apply(
+                                lambda x: len(set(le(str(token))) - x) == 0
+                            )
+                        ].tokens.values
+                    ]
+                )
+            ]
+        else:
+            self.token_df = df[df.text_tokens == set(le(str(token)))]
+        self.token = str(token)
 
     def n_commnets_unique(self):
         print(
@@ -475,6 +491,9 @@ class SameText:
             "quote_count": df_with_merics["quote_count"].sum(),
         }
         display(pd.Series(metrics_dict.values(), index=metrics_dict.keys(),))
+
     def get_times(self):
-        df = self.df_timing().query(' days == 0  and  hours == 0  and minutes == 0')
-        print(f"{df.shape[0]} tweets from {self.token_df.shape[0]} tweets made in less than 1 min from previous tweet by {df.user_name.nunique()} users")
+        df = self.df_timing().query(" days == 0  and  hours == 0  and minutes == 0")
+        print(
+            f"{df.shape[0]} tweets from {self.token_df.shape[0]} tweets made in less than 1 min from previous tweet by {df.user_name.nunique()} users"
+        )
